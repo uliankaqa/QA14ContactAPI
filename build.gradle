@@ -38,8 +38,18 @@ dependencies {
 
     implementation 'com.jayway.restassured:rest-assured:2.9.0'
     testImplementation 'org.hamcrest:hamcrest:2.2'
+/*The JAXB APIs are considered to be Java EE APIs and therefore are no longer
+contained on the default classpath in Java SE 9. In Java 11, they are completely
+removed from the JDK.
 
+Java 9 introduces the concepts of modules, and by default, the java.se aggregate
+module is available on the classpath (or rather, module-path). As the name implies,
+the java.se aggregate module does not include the Java EE APIs that have been
+traditionally bundled with Java 6/7/8.
+Added below dependency to resolve the issue
+ */
     implementation 'javax.xml.bind:jaxb-api:2.3.1'
+
 
 }
 
